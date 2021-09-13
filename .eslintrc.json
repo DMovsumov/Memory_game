@@ -1,0 +1,18 @@
+{
+  "plugins": [
+    "react-redux"
+  ],
+  "extends": [
+    "plugin:react-redux/recommended"
+  ],
+  "rules": {
+    "react-redux/connect-prefer-named-arguments": 2,
+    "react/no-unsafe": [
+      2,
+      {
+        "checkAliases": true
+      }
+    ],
+    "max-len": ["error", 150]
+  }
+}
