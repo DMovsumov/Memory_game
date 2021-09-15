@@ -28,16 +28,16 @@ export const FrontFace = styled.div`
     background-image: url(${shield});
     
      ${({ flipped }: any) => flipped && css`
-        transform: perspective(16rem) rotateY(180deg);
+        transform: perspective(12rem) rotateY(180deg);
     `}
 `;
 
 export const BackFace = styled.div`
     ${CardSide};
     background-color: orange;
-    transform: perspective(16rem) rotateY(180deg);
+    transform: perspective(12rem) rotateY(180deg);
     
     ${({ flipped }: any) => flipped && css`
-        transform: perspective(16rem) rotateY(360deg);
+        transform: perspective(12rem) rotateY(360deg);
     `}
 `;

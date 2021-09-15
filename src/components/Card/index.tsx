@@ -1,8 +1,16 @@
-import React, {FC, memo, useState} from 'react';
+import React, {FC, memo, useEffect, useState} from 'react';
 import { Wrapper, FrontFace, BackFace } from "./styled.index";
 
 const Card: FC = () => {
     const [flipped, setFlipped] = useState<boolean>(false);
+
+    useEffect(() => {
+        if (flipped) {
+            setTimeout(() => {
+                setFlipped(false)
+            }, 5000)
+        }
+    }, [flipped])
 
     return (
         <>
@@ -10,7 +18,7 @@ const Card: FC = () => {
                 {/*@ts-ignore*/}
                 <FrontFace onClick={() => setFlipped(true)} flipped={flipped}/>
                 {/*@ts-ignore*/}
-                <BackFace onClick={() => setFlipped(false)} flipped={flipped}/>
+                <BackFace flipped={flipped}/>
             </Wrapper>
         </>
     );
