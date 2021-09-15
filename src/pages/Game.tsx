@@ -1,10 +1,12 @@
 import React, { FC } from 'react';
+import MainLayout from "../layouts/MainLayout";
+import GameContainer from "../containers/Game";
 
 const Game: FC = () => {
     return (
-        <div>
-            Game
-        </div>
+        <MainLayout>
+            <GameContainer />
+        </MainLayout>
     );
 };
 

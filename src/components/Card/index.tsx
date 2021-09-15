@@ -1,10 +1,18 @@
-import React, { FC, memo } from 'react';
+import React, {FC, memo, useState} from 'react';
+import { Wrapper, FrontFace, BackFace } from "./styled.index";
 
 const Card: FC = () => {
-    return (
-        <div>
+    const [flipped, setFlipped] = useState<boolean>(false);
 
-        </div>
+    return (
+        <>
+            <Wrapper>
+                {/*@ts-ignore*/}
+                <FrontFace onClick={() => setFlipped(true)} flipped={flipped}/>
+                {/*@ts-ignore*/}
+                <BackFace onClick={() => setFlipped(false)} flipped={flipped}/>
+            </Wrapper>
+        </>
     );
 };
 
