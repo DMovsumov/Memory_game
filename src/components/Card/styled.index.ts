@@ -14,25 +14,6 @@ const CardSide = css`
     transition: 2s ease-in-out;
 `;
 
-export const FrontFace = styled.div`
-    ${CardSide};
-    background-image: url(${shield});
-    
-     ${({ flipped }: any) => flipped && css`
-        transform: perspective(8rem) rotateY(180deg);
-    `}
-`;
-
-export const BackFace = styled.div`
-    ${CardSide};
-    background-color: orange;
-    transform: perspective(8rem) rotateY(180deg);
-    
-    ${({ flipped }: any) => flipped && css`
-        transform: perspective(8rem) rotateY(360deg);
-    `}
-`;
-
 export const Wrapper = styled.div`
     width: 8rem;
     height: 12rem;
@@ -40,12 +21,23 @@ export const Wrapper = styled.div`
     border-radius: 10px;
     transform-style: preserve-3d;
     cursor: pointer;
+`;
+
+export const FrontFace = styled.div`
+    ${CardSide};
+    background-image: url(${shield});
     
-    // ${({ flipped }: any) => flipped && FrontFace && css`
-    //     transform: perspective(8rem) rotateY(180deg);
-    // `}
-    //
-    // ${({ flipped }: any) => flipped && BackFace && css`
-    //     transform: perspective(8rem) rotateY(360deg);
-    // `}
+     ${({ flipped }: any) => flipped && css`
+        transform: perspective(16rem) rotateY(180deg);
+    `}
+`;
+
+export const BackFace = styled.div`
+    ${CardSide};
+    background-color: orange;
+    transform: perspective(16rem) rotateY(180deg);
+    
+    ${({ flipped }: any) => flipped && css`
+        transform: perspective(16rem) rotateY(360deg);
+    `}
 `;
