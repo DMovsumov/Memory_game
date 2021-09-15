@@ -1,11 +1,14 @@
 import React, { FC } from 'react';
 import Card from "../../components/Card";
 import { WrapperContainer, BlockInfo, CardList } from "./styled.index";
+import TimerContainer from "./components/Timer";
 
 const GameContainer: FC = () => {
     return (
         <WrapperContainer>
-            <BlockInfo></BlockInfo>
+            <BlockInfo>
+                <TimerContainer />
+            </BlockInfo>
             <CardList>
                 <Card />
                 <Card />
