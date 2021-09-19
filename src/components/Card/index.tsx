@@ -1,26 +1,18 @@
-import React, {FC, memo, useEffect, useState} from 'react';
+import React, { FC, memo, useEffect, useState } from 'react';
+import { CardType } from "../../store/types/game";
 import { Wrapper, FrontFace, BackFace } from "./styled.index";
 
-const Card: FC = () => {
-    const [flipped, setFlipped] = useState<boolean>(false);
+interface Props extends CardType {
+    onClick: () => void;
+    flipped: boolean;
+}
 
-    useEffect(() => {
-        if (flipped) {
-            setTimeout(() => {
-                setFlipped(false)
-            }, 5000)
-        }
-    }, [flipped])
-
+const Card: FC<Props> = ({ id, name, img, show, onClick, flipped }) => {
     return (
-        <>
-            <Wrapper>
-                {/*@ts-ignore*/}
-                <FrontFace onClick={() => setFlipped(true)} flipped={flipped}/>
-                {/*@ts-ignore*/}
-                <BackFace flipped={flipped}/>
-            </Wrapper>
-        </>
+        <Wrapper hide={show}>
+            <FrontFace onClick={!flipped ? onClick : undefined} flipped={flipped}/>
+            <BackFace flipped={flipped} img={img}/>
+        </Wrapper>
     );
 };
 

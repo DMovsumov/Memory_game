@@ -3,7 +3,7 @@ import { H1, H2, H3, H4, H5, H6 } from "./styled.index";
 
 interface Props {
     level: number;
-    children: string;
+    children: string | unknown;
 }
 
 const Title: FC<Props> = ({ level, children }) => {

@@ -1,6 +1,21 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
-export const Wrapper = styled.button`
+const view = (left: boolean) => keyframes`
+    from {
+        transform: translateX(${left ? '-90vw' : '90vw'});
+    }
+    
+    to {
+        transform: translateX(0vw);
+    }
+`;
+
+interface ButtonProps {
+  animation?: boolean,
+  left?: boolean
+}
+
+export const Wrapper = styled.button<ButtonProps>`
   outline: none;
   border: none;
   background-color: orange;
@@ -9,4 +24,9 @@ export const Wrapper = styled.button`
   font-size: 1.5rem;
   color: black;
   cursor: pointer;
+  
+  ${({ animation }) => animation && css`
+    transform: translateX(0vw);
+    animation: ${({left}: any) => view(left)} 3s ease;
+  `}
 `;

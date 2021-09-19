@@ -1,4 +1,12 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const view = keyframes`
+    from {
+       transform: translateY(90vh);
+    } to {
+        transform: translateY(0vh);
+    }
+`;
 
 export const Wrapper = styled.div`
     width: 100%;
@@ -11,21 +19,27 @@ export const Wrapper = styled.div`
 
 export const InfoBlock = styled.div`
     width: 30rem;
-    height: 15rem;
     padding: 2rem;
     border-radius: 50px;
-    background-color: aliceblue;
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    transform: translateY(0vh);
+    animation: ${view} 2s;
     
     p {
       font-family: Roboto, sans-serif;
 	  font-weight: 500;
 	  line-height: 1.2rem;
 	  font-size: 1em;
-	  color: #5a5a5a;
+	  color: #fff;
+	  text-align: center;
+    }
+    
+    h1 {
+      color: #fff;
     }
 `;
 
